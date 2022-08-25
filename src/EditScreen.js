@@ -25,6 +25,11 @@ const EditScreen = props => {
       mobile:mobile
     }
      dispatch({type: 'AddEmplyee', payload: data});
+     setId('')
+     setNewName('')
+     setnewEmail('')
+     setMobile('')
+     alert("user added")
   };
   return (
     <View style={{flex: 1, alignItems: 'center'}}>
@@ -89,7 +94,7 @@ const EditScreen = props => {
           alignItems: 'center',
           borderRadius: 10,
         }}
-        onPress={() => navigation.navigate('HomeScreen')}>
+        onPress={() => navigation.navigate('Employee List')}>
         <Text style={{fontWeight: 'bold', color: '#fff', fontSize: 20}}>
           Show List
         </Text>

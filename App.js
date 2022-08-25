@@ -15,8 +15,7 @@ const StackNavigation = () => {
       <Stack.Navigator>
         <Stack.Screen name="Add" component={EditScreen} />
         <Stack.Screen
-          options={{headerShown: false}}
-          name="HomeScreen"
+          name="Employee List"
           component={HomeScreen}
         />
       </Stack.Navigator>
