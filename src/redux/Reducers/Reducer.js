@@ -3,12 +3,13 @@ const initialState = {
 };
 
 const Reducer = (state = initialState, actions) => {
-  alert('hello');
+ 
   switch (actions.type) {
-    case 'AddEmplye':
+    case 'AddEmplyee':
+      console.log( actions.payload)
       return {
         ...state,
-        employee: actions.data,
+        employee:[...state.employee,actions.payload],
       };
 
     default:

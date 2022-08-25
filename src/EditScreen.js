@@ -6,26 +6,34 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 const EditScreen = props => {
   let {navigation} = props;
-
-  const [newname, setNewName] = useState();
-  const [newEmail, setnewEmail] = useState();
-  const [newrole, setNewRole] = useState();
+  const [Id,setId] = useState('')
+  const [newname, setNewName] = useState('');
+  const [newEmail, setnewEmail] = useState('');
+  const [mobile, setMobile] = useState('');
   const dispatch = useDispatch();
+  const EmpData = useSelector(state=>state.addEmploye.employee)
+  console.log(EmpData)
   const AddEmploye = () => {
-    dispatch({type: 'ajdkfja', payload: 'afhahdfhasd'});
+    let data ={
+      id:Id,
+      name:newname,
+      email:newEmail,
+      mobile:mobile
+    }
+     dispatch({type: 'AddEmplyee', payload: data});
   };
   return (
     <View style={{flex: 1, alignItems: 'center'}}>
       <TextInput
         style={{borderWidth: 1, width: '95%', borderRadius: 10, marginTop: 30}}
         placeholder="Id"
-        value={newname}
+        value={Id}
         onChangeText={text => {
-          setNewName(text);
+          setId(text);
         }}
       />
       <TextInput
@@ -47,9 +55,9 @@ const EditScreen = props => {
       <TextInput
         style={{borderWidth: 1, width: '95%', borderRadius: 10, marginTop: 20}}
         placeholder="Contact No."
-        value={newrole}
+        value={mobile}
         onChangeText={text => {
-          setNewRole(text);
+          setMobile(text);
         }}
       />
       <TouchableOpacity
